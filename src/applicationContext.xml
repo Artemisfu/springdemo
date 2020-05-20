@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="source1" class="pojo.Source">
+        <property name="fruit" value="葡萄"/>
+        <property name="sugar" value="多糖"/>
+        <property name="size" value="大杯"/>
+    </bean>
+    <bean name="juiceMaker" class="pojo.JuiceMaker">
+        <property name="source" ref="source1"/>
+    </bean>
+    <bean name="productService" class="service.ProductService"/>
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="myThreadScope">
+                    <bean class="scope.MyThreadScope"></bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="myThreadBean" class="pojo.Source" scope="myThreadScope">
+        <property name="fruit" value="apple"/>
+    </bean>
+</beans>
