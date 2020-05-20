@@ -2,7 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+
+>
+
+
     <!--    注册方式-->
     <!--    <bean id="simplerUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
     <!--        <property name="mappings">-->
@@ -17,15 +21,18 @@
     <!--     扫描方式，在Controller定义处用@Controller声明-->
     <context:component-scan base-package="mvc.controller"/>
 
-<!--    在WEB-INF放置视图资源，避免web文件下的资源被直接访问（localhost:8080/test.jsp）,【WEB-INF】是 Java Web 中默认的安全目录，是不允许用户直接访问的（也就是你说你通过-->
-<!--    localhost/WEB-INF/ 这样的方式是永远访问不到的）-->
+    <!--    在WEB-INF放置视图资源，避免web文件下的资源被直接访问（localhost:8080/test.jsp）,【WEB-INF】是 Java Web 中默认的安全目录，是不允许用户直接访问的（也就是你说你通过-->
+    <!--    localhost/WEB-INF/ 这样的方式是永远访问不到的）-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
 
-<!--    配置上传解析器-->
-    <bean id="commonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-<!--    end 配置上传解析器-->
+    <!--    配置上传解析器-->
+    <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="#{1024*1024}"/>
+    </bean>
+    <!--    end 配置上传解析器-->
 </beans>

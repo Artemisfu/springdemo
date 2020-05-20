@@ -16,7 +16,7 @@
         <property name="scopes">
             <map>
                 <entry key="myThreadScope">
-                    <bean class="scope.MyThreadScope"></bean>
+                    <bean class="scope.MyThreadScope"/>
                 </entry>
             </map>
         </property>

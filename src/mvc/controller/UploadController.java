@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class UploadController {
     @RequestMapping("/upload")
     public void upload(@RequestParam("picture") MultipartFile picture) throws Exception {
-        System.out.println(picture.getOriginalFilename());
+        System.out.println("Your filename is : '" + picture.getOriginalFilename() + "'");
     }
 
     @RequestMapping("/test_upload")
     public ModelAndView upload() {
-        return new ModelAndView("upload");
+        return new ModelAndView("redirect: /upload");
     }
 }

@@ -40,7 +40,7 @@ public class ShowValueController {
         return "showValue";
     }
 
-    //
+
     @ModelAttribute
     public void model(Model model) {
         model.addAttribute("message", "注解成功");
