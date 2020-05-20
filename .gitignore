@@ -27,3 +27,5 @@ out/
 .gradle/
 
 jars/
+
+.DS_store
