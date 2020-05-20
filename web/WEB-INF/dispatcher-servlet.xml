@@ -17,7 +17,7 @@
     <!--     扫描方式，在Controller定义处用@Controller声明-->
     <context:component-scan base-package="mvc.controller"/>
 
-<!--    在WEB-INF放置资源，避免web文件下的资源被直接访问（localhost:8080/test.jsp）,【WEB-INF】是 Java Web 中默认的安全目录，是不允许用户直接访问的（也就是你说你通过-->
+<!--    在WEB-INF放置视图资源，避免web文件下的资源被直接访问（localhost:8080/test.jsp）,【WEB-INF】是 Java Web 中默认的安全目录，是不允许用户直接访问的（也就是你说你通过-->
 <!--    localhost/WEB-INF/ 这样的方式是永远访问不到的）-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/page/"/>
