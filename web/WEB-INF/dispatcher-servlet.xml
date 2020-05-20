@@ -23,4 +23,9 @@
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+
+<!--    配置上传解析器-->
+    <bean id="commonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+<!--    end 配置上传解析器-->
 </beans>
